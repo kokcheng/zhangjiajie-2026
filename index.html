@@ -28,6 +28,7 @@ section.pane.on{display:block}
 .card h2{margin:0 0 2px;font-size:1.02rem}
 .date{color:var(--accent);font-weight:700;font-size:.8rem;text-transform:uppercase;letter-spacing:.04em}
 .meals{font-size:.82rem;color:var(--mute);margin:4px 0 8px}
+.zh{color:var(--mute);font-weight:400;font-size:.9em}
 .stay{font-size:.85rem;background:#ecf7f5;border-radius:8px;padding:6px 10px;margin-top:8px}
 .stops{padding-left:0;list-style:none;margin:8px 0}
 .stops li{margin:3px 0;font-size:.9rem}
@@ -124,9 +125,23 @@ const DAYS=[
   stops:[["hotel:wc"],["Changsha Huanghua Airport (CSX)",[28.1892,113.2196],"TR125 dep 00:05 (11 Nov)"],["Changi Airport (SIN)",[1.3644,103.9915],"Arrive 04:40"]]}
 ];
 
+const ZH={
+ "Changi Airport T1 (SIN)":"新加坡樟宜机场 T1","Changi Airport (SIN)":"新加坡樟宜机场","Changsha Huanghua Airport (CSX)":"长沙黄花国际机场",
+ "Fenghuang Maglev & Eye Observation Deck":"凤凰磁浮观光快线・凤凰之眼观景台","Fenghuang Ancient City":"凤凰古城",
+ "Tuojiang River Night Cruise":"湘见・沱江艺术夜游船","Morong Miao Village":"墨戎苗寨","Furong Town (Wang Village)":"芙蓉镇(王村)",
+ "Tianmen Mountain":"天门山国家森林公园","Tianmen Cave":"天门洞","Seventy-Two Scenic Towers":"七十二奇楼",
+ "Bailong Elevator":"百龙天梯","Yuanjiajie (First Bridge)":"袁家界・天下第一桥","Tianzi Mountain":"天子山","Helong Park":"贺龙公园",
+ "Golden Whip Stream":"金鞭溪","Ten-Mile Gallery":"十里画廊","Zhangjiajie Grand Canyon":"张家界大峡谷・云天渡玻璃桥",
+ "Hunan Provincial Museum":"湖南省博物院","Du Fu Pavilion":"杜甫江阁","Huangxing Road Pedestrian Street":"黄兴路步行街",
+ "Wyndham Grand Plaza Royale Furongguo":"长沙温德姆至尊豪廷酒店(芙蓉国)","Crown International Hotel":"湘西皇冠国际酒店",
+ "Howard Johnson Neodalle Resort":"张家界纳百利豪生度假酒店","Wyndham Changsha":"长沙温德姆酒店"
+};
+const TZH=["新加坡 → 长沙","长沙 → 凤凰","凤凰 → 张家界","张家界 天门山","张家界森林公园・袁家界・天子山","金鞭溪・十里画廊・大峡谷","张家界 → 长沙","长沙 → 新加坡"];
+const MZH=["","早/午/晚餐：苗家风味","早餐／午餐：苗寨土家风味／晚餐","早餐／午餐：野生菌汤锅／晚餐：韩式烤肉**","早/午/晚餐：索溪山寨","早餐／午餐：柴火老灶台三下锅／晚餐","早/午/晚餐：酒店自助餐（温德姆海鲜自助晚餐）","早餐"];
+const zh=n=>ZH[n]?`<span class="zh">${ZH[n]}</span>`:"";
 const EXTRA={
- add:["Furong Town (cruise + eco-car)","Phoenix Ancient City eco-car","Korean BBQ"],
- opt:["Tianmen Fox Show (or Charming Xiangxi Show) + 1 hr massage – RMB500 adult / RMB250 child","Baofeng Lake (cruise + eco-car) + Orange Isle (battery car) – RMB450 adult / RMB225 child"]
+ add:["Furong Town 芙蓉镇 (cruise + eco-car 游船+环保车)","Phoenix Ancient City eco-car 凤凰古城环保车","Korean BBQ 韩式烤肉特色餐"],
+ opt:["Tianmen Fox Show 天门狐仙秀 (or Charming Xiangxi Show 魅力湘西歌舞秀) + 1 hr massage 按摩 – RMB500 adult / RMB250 child","Baofeng Lake 宝峰湖 (cruise + eco-car) + Orange Isle 橘子洲头 (battery car) – RMB450 adult / RMB225 child"]
 };
 
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
@@ -140,16 +155,16 @@ function resolve(s){
 const itin=document.getElementById("pane-itin");
 itin.innerHTML=DAYS.map((D,i)=>{
   const stops=D.stops.map((s,j)=>{const r=resolve(s);
-    return `<li>${r.hotel?"🏨":"📍"} <a data-day="${i}" data-stop="${j}">${esc(r.name)}</a>${r.note?` <small style="color:var(--mute)">– ${esc(r.note)}</small>`:""}</li>`}).join("");
+    return `<li>${r.hotel?"🏨":"📍"} <a data-day="${i}" data-stop="${j}">${esc(r.name)}</a> ${zh(r.name)}${r.note?` <small style="color:var(--mute)">– ${esc(r.note)}</small>`:""}</li>`}).join("");
   const h=D.stay?HOTELS[D.stay]:null;
   return `<article class="card" id="day${i}">
    <div class="date">Day ${i+1} · ${D.d}</div>
-   <h2>${esc(D.t)}</h2>
-   <div class="meals">${esc(D.meals)}</div>
+   <h2>${esc(D.t)} <span class="zh">${TZH[i]}</span></h2>
+   <div class="meals">${esc(D.meals)}${MZH[i]?`<br><span class="zh">${MZH[i]}</span>`:""}</div>
    <p style="margin:0">${esc(D.desc)}</p>
    <ul class="stops">${stops}</ul>
    ${D.note?`<div class="note">${esc(D.note)}</div>`:""}
-   ${h?`<div class="stay">🛏 Stay: <b>${esc(h.name)}</b> · <a href="tel:${h.tel.replace(/[^+\d]/g,"")}">${h.tel}</a></div>`:""}
+   ${h?`<div class="stay">🛏 Stay: <b>${esc(h.name)}</b> ${zh(h.name)} · <a href="tel:${h.tel.replace(/[^+\d]/g,"")}">${h.tel}</a></div>`:""}
    <button class="btn" data-showmap="${i}">View day on map</button>
   </article>`}).join("")+
   `<article class="card"><h2>Additional tours (compulsory, pay in China)</h2>
@@ -164,7 +179,7 @@ document.getElementById("pane-hotels").innerHTML=
    <tr><td><b>TR125</b></td><td>Changsha → Singapore<br>Wed 11 Nov · 00:05 → 04:40</td></tr></table>
    <p class="meals">Report 15:10, 3 Nov at Changi T1 Scoot counter, Row 5.</p></article>`+
  ["wgp","crown","hj","wc"].map(k=>{const h=HOTELS[k];return `<article class="card hotel">
-   <h2>🏨 ${esc(h.name)}</h2>
+   <h2>🏨 ${esc(h.name)}<br>${zh(h.name)}</h2>
    <div class="nights">${esc(h.nights)} · ${esc(h.city)}${h.room?" · "+h.room:""}</div>
    <p style="margin:6px 0 0">${esc(h.addr)}</p>
    <a class="btn" href="tel:${h.tel.replace(/[^+\d]/g,"")}">Call ${h.tel}</a>
@@ -185,12 +200,12 @@ function draw(sel){ // sel = day index or "all"
     L.polyline(path,{color:"#64748b",weight:2,dashArray:"4 6",opacity:.7}).addTo(layer);
     Object.values(HOTELS).forEach(h=>{
       L.marker(h.ll,{icon:L.divIcon({className:"",html:`<div class="pin hotel" style="background:#334155">🏨</div>`,iconSize:[26,26],iconAnchor:[13,13]})})
-       .bindPopup(`<b>${esc(h.name)}</b><br>${esc(h.nights)}<br><a href="${gmaps(h.ll)}" target="_blank" rel="noopener">Open in Maps</a>`).addTo(layer);
+       .bindPopup(`<b>${esc(h.name)}</b><br>${zh(h.name)}<br>${esc(h.nights)}<br><a href="${gmaps(h.ll)}" target="_blank" rel="noopener">Open in Maps</a>`).addTo(layer);
       pts.push(h.ll);
     });
     DAYS.forEach((D,i)=>D.stops.map(resolve).filter(r=>!r.hotel&&r.ll[0]>20).forEach(r=>{
       L.marker(r.ll,{icon:L.divIcon({className:"",html:`<div class="pin" style="background:${COLORS[i]}">${i+1}</div>`,iconSize:[26,26],iconAnchor:[13,13]})})
-       .bindPopup(`<b>Day ${i+1}: ${esc(r.name)}</b><br>${esc(r.note)}<br><a href="${gmaps(r.ll)}" target="_blank" rel="noopener">Open in Maps</a>`).addTo(layer);
+       .bindPopup(`<b>Day ${i+1}: ${esc(r.name)}</b><br>${zh(r.name)}<br>${esc(r.note)}<br><a href="${gmaps(r.ll)}" target="_blank" rel="noopener">Open in Maps</a>`).addTo(layer);
       pts.push(r.ll);
     }));
   } else {
@@ -198,7 +213,7 @@ function draw(sel){ // sel = day index or "all"
     L.polyline(rs.map(r=>r.ll),{color:COLORS[i],weight:3,opacity:.8}).addTo(layer);
     rs.forEach((r,j)=>{
       const m=L.marker(r.ll,{icon:L.divIcon({className:"",html:`<div class="pin ${r.hotel?"hotel":""}" style="background:${COLORS[i]}">${j+1}</div>`,iconSize:[26,26],iconAnchor:[13,13]})})
-       .bindPopup(`<b>${esc(r.name)}</b><br>${esc(r.note)}<br><a href="${gmaps(r.ll)}" target="_blank" rel="noopener">Open in Maps</a>`).addTo(layer);
+       .bindPopup(`<b>${esc(r.name)}</b><br>${zh(r.name)}<br>${esc(r.note)}<br><a href="${gmaps(r.ll)}" target="_blank" rel="noopener">Open in Maps</a>`).addTo(layer);
       markers[j]=m;pts.push(r.ll);
     });
   }
@@ -231,3 +246,4 @@ window.addEventListener("resize",()=>map.invalidateSize());
 </script>
 </body>
 </html>
+
