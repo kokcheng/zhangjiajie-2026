@@ -75,7 +75,7 @@ footer{padding:14px;font-size:.78rem;color:var(--mute);text-align:center}
     <div id="map"></div>
   </section>
 </div>
-<footer>Map pins are approximate. Itinerary and hotels are subject to change – re-confirm with Chan Brothers.</footer>
+<footer>Travel times are rough estimates (excluding stops, queues and traffic). Map pins are approximate. Itinerary and hotels are subject to change – re-confirm with Chan Brothers.</footer>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
@@ -96,33 +96,33 @@ const DAYS=[
  {d:"Tue 3 Nov",t:"Singapore → Changsha",meals:"Meals: on board / own arrangement",stay:"wgp",
   desc:"Report at Changi Airport T1 Scoot counter Row 5 at 15:10 (check-in closes 60 min before departure). Fly TR124 18:10 → 23:05, then transfer to hotel.",
   note:"If a nationwide conference is on, accommodation moves to a similar hotel in Changde.",
-  stops:[["Changi Airport T1 (SIN)",[1.3644,103.9915],"TR124 dep 18:10"],["Changsha Huanghua Airport (CSX)",[28.1892,113.2196],"Arrive 23:05"],["hotel:wgp"]]},
+  stops:[["Changi Airport T1 (SIN)",[1.3644,103.9915],"TR124 dep 18:10"],["Changsha Huanghua Airport (CSX)",[28.1892,113.2196],"Arrive 23:05"],["hotel:wgp"]],tt:["","✈ ~4h 55m flight","~35 min by coach"]},
  {d:"Wed 4 Nov",t:"Changsha → Fenghuang",meals:"Breakfast · Lunch · Dinner (Miao flavour)",stay:"crown",
   desc:"Ride the Fenghuang Maglev Sightseeing Express (4 stations, ~25 min, no assigned seats). Visit the Fenghuang Eye observation deck, East Gate City Tower, Rainbow Bridge & Fengyu Tower; eco-car tour of the old town. Evening: Xiangjian Tuojiang River Art Night Cruise (Cui Cui show, 3D light show, stilted houses).",
-  stops:[["hotel:wgp"],["Fenghuang Maglev & Eye Observation Deck",[27.9540,109.5930],"Maglev + overlook"],["Fenghuang Ancient City",[27.9500,109.5980],"East Gate Tower, Rainbow Bridge, eco-car"],["Tuojiang River Night Cruise",[27.9490,109.5995],"Evening art cruise"],["hotel:crown"]]},
+  stops:[["hotel:wgp"],["Fenghuang Maglev & Eye Observation Deck",[27.9540,109.5930],"Maglev + overlook"],["Fenghuang Ancient City",[27.9500,109.5980],"East Gate Tower, Rainbow Bridge, eco-car"],["Tuojiang River Night Cruise",[27.9490,109.5995],"Evening art cruise"],["hotel:crown"]],tt:["","~5–5.5 h by coach (~400 km)","~15 min (maglev ride ~25 min)","~5 min","~15 min"]},
  {d:"Thu 5 Nov",t:"Fenghuang → Zhangjiajie",meals:"Breakfast · Lunch (Tujia flavour at Miao village) · Dinner",stay:"hj",
   desc:"Visit Morong Miao Village, then Furong Town (Wang Village) – the “thousand-year town hanging on a waterfall”. Coach on to Zhangjiajie and check in.",
   note:"Itinerary PDF lists Sunshine Hotel for this night; the hotel list confirms Howard Johnson Neodalle Resort (shown here).",
-  stops:[["hotel:crown"],["Morong Miao Village",[28.3000,109.5200],"Miao culture"],["Furong Town (Wang Village)",[28.9285,109.9058],"Waterfall town"],["hotel:hj"]]},
+  stops:[["hotel:crown"],["Morong Miao Village",[28.3000,109.5200],"Miao culture"],["Furong Town (Wang Village)",[28.9285,109.9058],"Waterfall town"],["hotel:hj"]],tt:["","~1.5 h by coach","~1.5 h by coach","~2.5 h by coach"]},
  {d:"Fri 6 Nov",t:"Tianmen Mountain",meals:"Breakfast · Lunch (wild mushroom soup) · Dinner (Korean BBQ**)",stay:"hj",
   desc:"One-way cable car up Tianmen Mountain National Forest Park, escalators and express cable car between spots, Tianmen Cave (highest natural arch), and the 109.9 m Seventy-Two Scenic Towers.",
   note:"Winter visiting methods and attractions may change with scenic-area notices.",
-  stops:[["hotel:hj"],["Tianmen Mountain",[29.0540,110.4830],"Cable car, escalators"],["Tianmen Cave",[29.0510,110.4780],"Highest natural arch"],["Seventy-Two Scenic Towers",[29.0560,110.4850],"109.9 m"],["hotel:hj"]]},
+  stops:[["hotel:hj"],["Tianmen Mountain",[29.0540,110.4830],"Cable car, escalators"],["Tianmen Cave",[29.0510,110.4780],"Highest natural arch"],["Seventy-Two Scenic Towers",[29.0560,110.4850],"109.9 m"],["hotel:hj"]],tt:["","~40 min by coach (+ cable car ~30 min)","~15 min on mountain","~15 min on mountain","~45 min by coach"]},
  {d:"Sat 7 Nov",t:"Forest Park · Yuanjiajie · Tianzi Mountain",meals:"Breakfast · Lunch · Dinner (Suoxi Shanzhai)",stay:"hj",
   desc:"Zhangjiajie Forest Park with the Bailong Elevator (VIP + Express Entry). Yuanjiajie: First Bridge Under Heaven, Back Garden. Tianzi Mountain, West Sea and Helong Park, then Tianzi cable car down and the VIP bus to the cableway car park.",
   note:"Eco-vehicles may be suspended on icy roads in winter; some sights may be skipped.",
-  stops:[["hotel:hj"],["Bailong Elevator",[29.3430,110.4380],"VIP + Express Entry"],["Yuanjiajie (First Bridge)",[29.3300,110.4350],"Back Garden"],["Tianzi Mountain",[29.3800,110.4770],"King of peaks"],["Helong Park",[29.3880,110.4390],"Tianzi cable car down"],["hotel:hj"]]},
+  stops:[["hotel:hj"],["Bailong Elevator",[29.3430,110.4380],"VIP + Express Entry"],["Yuanjiajie (First Bridge)",[29.3300,110.4350],"Back Garden"],["Tianzi Mountain",[29.3800,110.4770],"King of peaks"],["Helong Park",[29.3880,110.4390],"Tianzi cable car down"],["hotel:hj"]],tt:["","~20 min by coach","~15 min (elevator + shuttle)","~25 min by shuttle bus","~20 min (cable car + VIP bus)","~35 min by coach"]},
  {d:"Sun 8 Nov",t:"Golden Whip Stream · Grand Canyon",meals:"Breakfast · Lunch (wood-fire Sanxia wok) · Dinner",stay:"hj",
   desc:"Walk the Golden Whip Stream, ride the Ten-Mile Gallery mini train (return included), then the Grand Canyon scenic area and the Yuntiandu Glass Bridge.",
   note:"If the Grand Canyon is closed it is replaced by Huangshizhai (cable car up & down).",
-  stops:[["hotel:hj"],["Golden Whip Stream",[29.3290,110.4370],"Stream walk"],["Ten-Mile Gallery",[29.3540,110.4510],"Mini train"],["Zhangjiajie Grand Canyon",[29.2450,110.4800],"Glass bridge"],["hotel:hj"]]},
+  stops:[["hotel:hj"],["Golden Whip Stream",[29.3290,110.4370],"Stream walk"],["Ten-Mile Gallery",[29.3540,110.4510],"Mini train"],["Zhangjiajie Grand Canyon",[29.2450,110.4800],"Glass bridge"],["hotel:hj"]],tt:["","~15 min by coach","~25 min (stream walk + mini train)","~1 h by coach","~1 h 15 min by coach"]},
  {d:"Mon 9 Nov",t:"Zhangjiajie → Changsha",meals:"Breakfast · Lunch · Dinner (hotel seafood buffet)",stay:"wc",
   desc:"Hunan Provincial Museum (closed Mondays – replaced by Jiankudumu Museum if closed or reservation fails), Du Fu Pavilion with views of Orange Isle, free time at Huangxing Road Pedestrian Street. Dinner: seafood buffet at Wyndham Grand Plaza Royale Furongguo.",
   note:"Today is a Monday, so the museum substitute is likely. Hotel list shows Wyndham Changsha (Xiangfu Middle Rd) tonight.",
-  stops:[["hotel:hj"],["Hunan Provincial Museum",[28.2137,112.9885],"Or Jiankudumu Museum"],["Du Fu Pavilion",[28.1880,112.9720],"Orange Isle view"],["Huangxing Road Pedestrian Street",[28.1960,112.9770],"Free time"],["hotel:wgp","Seafood buffet dinner"],["hotel:wc"]]},
+  stops:[["hotel:hj"],["Hunan Provincial Museum",[28.2137,112.9885],"Or Jiankudumu Museum"],["Du Fu Pavilion",[28.1880,112.9720],"Orange Isle view"],["Huangxing Road Pedestrian Street",[28.1960,112.9770],"Free time"],["hotel:wgp","Seafood buffet dinner"],["hotel:wc"]],tt:["","~4.5–5 h by coach (~330 km)","~20 min","~10 min","~10 min","~25 min"]},
  {d:"Tue 10 Nov",t:"Changsha → Singapore",meals:"Breakfast",stay:null,
   desc:"Free time at leisure after breakfast, then to the airport. Fly TR125 on 11 Nov 00:05 → 04:40 (Singapore).",
-  stops:[["hotel:wc"],["Changsha Huanghua Airport (CSX)",[28.1892,113.2196],"TR125 dep 00:05 (11 Nov)"],["Changi Airport (SIN)",[1.3644,103.9915],"Arrive 04:40"]]}
+  stops:[["hotel:wc"],["Changsha Huanghua Airport (CSX)",[28.1892,113.2196],"TR125 dep 00:05 (11 Nov)"],["Changi Airport (SIN)",[1.3644,103.9915],"Arrive 04:40"]],tt:["","~40 min by coach","✈ ~4h 35m flight"]}
 ];
 
 const ZH={
@@ -155,7 +155,7 @@ function resolve(s){
 const itin=document.getElementById("pane-itin");
 itin.innerHTML=DAYS.map((D,i)=>{
   const stops=D.stops.map((s,j)=>{const r=resolve(s);
-    return `<li>${r.hotel?"🏨":"📍"} <a data-day="${i}" data-stop="${j}">${esc(r.name)}</a> ${zh(r.name)}${r.note?` <small style="color:var(--mute)">– ${esc(r.note)}</small>`:""}</li>`}).join("");
+    return `${(D.tt&&D.tt[j])?`<li style="list-style:none;color:var(--mute);font-size:.8rem;margin:0 0 0 6px">⏱ ${esc(D.tt[j])}</li>`:""}<li>${r.hotel?"🏨":"📍"} <a data-day="${i}" data-stop="${j}">${esc(r.name)}</a> ${zh(r.name)}${r.note?` <small style="color:var(--mute)">– ${esc(r.note)}</small>`:""}</li>`}).join("");
   const h=D.stay?HOTELS[D.stay]:null;
   return `<article class="card" id="day${i}">
    <div class="date">Day ${i+1} · ${D.d}</div>
