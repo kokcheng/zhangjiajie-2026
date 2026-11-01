@@ -33,6 +33,7 @@ section.pane.on{display:block}
 .stops{padding-left:0;list-style:none;margin:8px 0}
 .stops li{margin:3px 0;font-size:.9rem}
 .stops a{color:var(--accent);cursor:pointer;text-decoration:underline dotted}
+.ph{margin:4px 0 8px}.ph a{display:inline-block}.ph img{display:block;width:100%;max-width:360px;height:150px;object-fit:cover;border-radius:8px;background:#e5ebe8}.ph small{display:block;font-size:.68rem;color:var(--mute)}
 .note{font-size:.8rem;color:var(--mute);border-left:3px solid #e2b93b;padding-left:8px;margin-top:8px}
 .btn{display:inline-block;margin-top:8px;padding:6px 12px;border-radius:8px;background:var(--accent);color:#fff;text-decoration:none;font-size:.85rem;border:0;cursor:pointer;font-family:inherit}
 .btn.alt{background:#fff;color:var(--accent);border:1px solid var(--accent);margin-left:6px}
@@ -155,7 +156,7 @@ function resolve(s){
 const itin=document.getElementById("pane-itin");
 itin.innerHTML=DAYS.map((D,i)=>{
   const stops=D.stops.map((s,j)=>{const r=resolve(s);
-    return `${(D.tt&&D.tt[j])?`<li style="list-style:none;color:var(--mute);font-size:.8rem;margin:0 0 0 6px">⏱ ${esc(D.tt[j])}</li>`:""}<li>${r.hotel?"🏨":"📍"} <a data-day="${i}" data-stop="${j}">${esc(r.name)}</a> ${zh(r.name)}${r.note?` <small style="color:var(--mute)">– ${esc(r.note)}</small>`:""}</li>`}).join("");
+    return `${(D.tt&&D.tt[j])?`<li style="list-style:none;color:var(--mute);font-size:.8rem;margin:0 0 0 6px">⏱ ${esc(D.tt[j])}</li>`:""}<li>${r.hotel?"🏨":"📍"} <a data-day="${i}" data-stop="${j}">${esc(r.name)}</a> ${zh(r.name)}${r.note?` <small style="color:var(--mute)">– ${esc(r.note)}</small>`:""}${r.hotel?"":`<div class="ph" data-n="${esc(r.name)}"></div>`}</li>`}).join("");
   const h=D.stay?HOTELS[D.stay]:null;
   return `<article class="card" id="day${i}">
    <div class="date">Day ${i+1} · ${D.d}</div>
@@ -172,6 +173,33 @@ itin.innerHTML=DAYS.map((D,i)=>{
    <ul>${EXTRA.add.map(x=>`<li>${x}</li>`).join("")}</ul>
    <h2 style="margin-top:10px">Optional tours</h2><ul>${EXTRA.opt.map(x=>`<li>${x}</li>`).join("")}</ul></article>`;
 
+// Photos (hotlinked from the sources you supplied)
+const IMG={
+ "Fenghuang Maglev & Eye Observation Deck":"https://ak-d.tripcdn.com/images/01058120009p810og8D72_W_1440_810_Q80.webp?proc=source%2ftrip",
+ "Fenghuang Ancient City":"https://sailingstonetravel.b-cdn.net/wp-content/uploads/2019/05/Fenghuang-East-Gate-Tower-1-copy-1024x667.jpg.webp",
+ "Tuojiang River Night Cruise":"https://ak-d.tripcdn.com/images/0102g120009d44df9E72A_W_1125_2436_R5_Q50.webp",
+ "Morong Miao Village":"https://ak-d.tripcdn.com/images/0101q120008qj135j7B48_W_1440_810_Q80.webp?proc=source%2ftrip",
+ "Furong Town (Wang Village)":"https://www.summittour.com.tw/eWeb_summittour/IMGDB/000060/000080/001152/00026922.JPG",
+ "Tianmen Mountain":"https://www.doppelmayr.com/wp-content/uploads/2022/08/26-TGD_Tianmenshan_Ropeway_Zhangjiajie_CN_WAA0003162_229_bearb2_RGB-scaled-aspect-ratio-1-1-scaled.jpg",
+ "Tianmen Cave":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg5GZOBCpZmoRS5wt_q1htmpuGZHyAM40yYB6z_ldPQmcKbQMRJ0B1jyrRM7sAXwonc-4iaZJ4mc_Q7avW1QpSsF2aCgRWhm0oksV2EttTOQa6r-brmszGSghTtUnwy_qP7t16Z2M2RZKakFqC87tGI_YUtNZv8h1HtVKe5UvjDxMQuD8OroMQIsb-DYXNo/w1200-h630-p-k-no-nu/Tianmen_38330-Zhangjiajie_(49047525877).jpg",
+ "Seventy-Two Scenic Towers":"https://www.travelchinaguide.com/images/photogallery/2025/zhangjiajie-72-strange-buildings.jpg",
+ "Bailong Elevator":"https://wr.content4travel.com/itk-hu/img/Jako_z_jine_planety_45e3f9408f_19035b5c761_fb2e843e07.webp?source=etr&width=1200&imgTag=1",
+ "Yuanjiajie (First Bridge)":"https://cdn1.tenchat.ru/static/vbc-gostinder/2025-10-16/1b6c3672-d823-473d-9888-5365cf6175d1.jpg",
+ "Tianzi Mountain":"https://www.chinatrainbooking.com/product/ticket/zhangjiajie_national_park/tianzi-mount1.jpg",
+ "Helong Park":"https://www.wonderfulpackage.com/uploads/moxie/program/Changsha-Zhangjiajie/helong-park.jpeg",
+ "Golden Whip Stream":"https://vemaybay123.vn/static/team/upload/images/Golden-Whip-Brook-Zhangjiajie.jpg",
+ "Ten-Mile Gallery":"https://www.tocntravel.com/wp-content/uploads/2025/12/zhangjiajie-ten-mile-gallery-scenic-train-768x1024.jpg",
+ "Zhangjiajie Grand Canyon":"https://soledestinationstravel.com/wp-content/uploads/2026/08/Zhangjiajie-Grand-Canyon-Glass-Bridge.jpg",
+ "Hunan Provincial Museum":"https://ak-d.tripcdn.com/images/0105m12000hxm9jth98E4_W_960_0_Q60.webp?proc=source%2ftrip",
+ "Du Fu Pavilion":"https://dimg04.c-ctrip.com/images/0103u12000rpgt4enB744_W_750_0.jpg?proc=autoorient",
+ "Huangxing Road Pedestrian Street":"https://ak-d.tripcdn.com/images/0100b12000hszwjrr4F5B_W_1440_810_Q80.webp?proc=source%2ftrip"
+};
+document.querySelectorAll(".ph").forEach(el=>{
+  const u=IMG[el.dataset.n];
+  if(!u){el.remove();return}
+  el.innerHTML=`<img loading="lazy" referrerpolicy="no-referrer" src="${u}" alt="${esc(el.dataset.n)}"><small>Photo: ${new URL(u).hostname}</small>`;
+  el.querySelector("img").onerror=()=>el.remove();
+});
 // Hotels pane
 document.getElementById("pane-hotels").innerHTML=
  `<article class="card"><h2>Flights</h2><table>
