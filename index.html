@@ -87,13 +87,11 @@ const HOTELS={
   crown:{name:"Crown International Hotel",city:"Xiangxi / Fenghuang",addr:"Fenghuang, Xiangxi, Hunan (address not on voucher)",tel:"+86-743-8529999",ll:[27.9440,109.6050]},
   sunshine:{name:"Sunshine Hotel & Resort Zhangjiajie",city:"Zhangjiajie",addr:"Address not on voucher",tel:"+86-744-8558888",ll:[29.1170,110.4780]},
   hj:{name:"Howard Johnson Neodalle Resort",city:"Zhangjiajie (Wulingyuan)",addr:"No. 168 Gaoyun Road, Wulingyuan District, Zhangjiajie, Hunan 427000, China",tel:"+86-744-5999999",ll:[29.3380,110.5440]},
-  wc:{name:"Wyndham Changsha",city:"Changsha",addr:"No.48 Xiangfu Middle Road, Yuhua District, Changsha, Hunan",tel:"+86-731-85855888",ll:[28.1530,113.0050]}
 };
-HOTELS.wgp.nights="3 Nov – 4 Nov (1 night)";
+HOTELS.wgp.nights="3 Nov – 4 Nov and 9 Nov – 10 Nov (1 night each)";
 HOTELS.crown.nights="4 Nov – 5 Nov (1 night)";
 HOTELS.sunshine.nights="5 Nov – 7 Nov (2 nights)";
 HOTELS.hj.nights="7 Nov – 9 Nov (2 nights)";
-HOTELS.wc.nights="9 Nov – 10 Nov (1 night)";
 
 const DAYS=[
  {d:"Tue 3 Nov",t:"Singapore → Changsha",meals:"Meals: on board / own arrangement",stay:"wgp",
@@ -118,13 +116,13 @@ const DAYS=[
   desc:"Walk the Golden Whip Stream, ride the Ten-Mile Gallery mini train (return included), then the Grand Canyon scenic area and the Yuntiandu Glass Bridge.",
   note:"If the Grand Canyon is closed it is replaced by Huangshizhai (cable car up & down).",
   stops:[["hotel:hj"],["Golden Whip Stream",[29.3290,110.4370],"Stream walk"],["Ten-Mile Gallery",[29.3540,110.4510],"Mini train"],["Zhangjiajie Grand Canyon",[29.2450,110.4800],"Glass bridge"],["hotel:hj"]],tt:["","~15 min by coach","~25 min (stream walk + mini train)","~1 h by coach","~1 h 15 min by coach"]},
- {d:"Mon 9 Nov",t:"Zhangjiajie → Changsha",meals:"Breakfast · Lunch · Dinner (hotel seafood buffet)",stay:"wc",
+ {d:"Mon 9 Nov",t:"Zhangjiajie → Changsha",meals:"Breakfast · Lunch · Dinner (hotel seafood buffet)",stay:"wgp",
   desc:"Hunan Provincial Museum (closed Mondays – replaced by Jiankudumu Museum if closed or reservation fails), Du Fu Pavilion with views of Orange Isle, free time at Huangxing Road Pedestrian Street. Dinner: seafood buffet at Wyndham Grand Plaza Royale Furongguo.",
-  note:"Today is a Monday, so the museum substitute is likely. Hotel list shows Wyndham Changsha (Xiangfu Middle Rd) tonight.",
-  stops:[["hotel:hj"],["Hunan Provincial Museum",[28.2137,112.9885],"Or Jiankudumu Museum"],["Du Fu Pavilion",[28.1880,112.9720],"Orange Isle view"],["Huangxing Road Pedestrian Street",[28.1960,112.9770],"Free time"],["hotel:wgp","Seafood buffet dinner"],["hotel:wc"]],tt:["","~4.5–5 h by coach (~330 km)","~20 min","~10 min","~10 min","~25 min"]},
+  note:"Today is a Monday, so the museum substitute is likely. The hotel voucher confirms Wyndham Grand Plaza Royale Furongguo tonight.",
+  stops:[["hotel:hj"],["Hunan Provincial Museum",[28.2137,112.9885],"Or Jiankudumu Museum"],["Du Fu Pavilion",[28.1880,112.9720],"Orange Isle view"],["Huangxing Road Pedestrian Street",[28.1960,112.9770],"Free time"],["hotel:wgp","Seafood buffet dinner"],["hotel:wgp"]],tt:["","~4.5–5 h by coach (~330 km)","~20 min","~10 min","~10 min","~25 min"]},
  {d:"Tue 10 Nov",t:"Changsha → Singapore",meals:"Breakfast",stay:null,
   desc:"Free time at leisure after breakfast, then to the airport. Fly TR125 on 11 Nov 00:05 → 04:40 (Singapore).",
-  stops:[["hotel:wc"],["Changsha Huanghua Airport (CSX)",[28.1892,113.2196],"TR125 dep 00:05 (11 Nov)"],["Changi Airport (SIN)",[1.3644,103.9915],"Arrive 04:40"]],tt:["","~40 min by coach","✈ ~4h 35m flight"]}
+  stops:[["hotel:wgp"],["Changsha Huanghua Airport (CSX)",[28.1892,113.2196],"TR125 dep 00:05 (11 Nov)"],["Changi Airport (SIN)",[1.3644,103.9915],"Arrive 04:40"]],tt:["","~40 min by coach","✈ ~4h 35m flight"]}
 ];
 
 const ZH={
@@ -137,7 +135,7 @@ const ZH={
  "Hunan Provincial Museum":"湖南省博物院","Du Fu Pavilion":"杜甫江阁","Huangxing Road Pedestrian Street":"黄兴路步行街",
  "Wyndham Grand Plaza Royale Furongguo":"长沙温德姆至尊豪廷酒店(芙蓉国)","Crown International Hotel":"湘西皇冠国际酒店",
  "Sunshine Hotel & Resort Zhangjiajie":"张家界阳光酒店",
- "Howard Johnson Neodalle Resort":"张家界纳百利豪生度假酒店","Wyndham Changsha":"长沙温德姆酒店"
+ "Howard Johnson Neodalle Resort":"张家界纳百利豪生度假酒店"
 };
 const TZH=["新加坡 → 长沙","长沙 → 凤凰","凤凰 → 张家界","张家界 天门山","张家界森林公园・袁家界・天子山","金鞭溪・十里画廊・大峡谷","张家界 → 长沙","长沙 → 新加坡"];
 const MZH=["","早/午/晚餐：苗家风味","早餐／午餐：苗寨土家风味／晚餐","早餐／午餐：野生菌汤锅／晚餐：韩式烤肉**","早/午/晚餐：索溪山寨","早餐／午餐：柴火老灶台三下锅／晚餐","早/午/晚餐：酒店自助餐（温德姆海鲜自助晚餐）","早餐"];
