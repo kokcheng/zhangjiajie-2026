@@ -206,7 +206,7 @@ document.getElementById("pane-hotels").innerHTML=
    <tr><td><b>TR124</b></td><td>Singapore → Changsha<br>Tue 3 Nov · 18:10 → 23:05</td></tr>
    <tr><td><b>TR125</b></td><td>Changsha → Singapore<br>Wed 11 Nov · 00:05 → 04:40</td></tr></table>
    <p class="meals">Report 15:10, 3 Nov at Changi T1 Scoot counter, Row 5.</p></article>`+
- ["wgp","crown","hj","wc"].map(k=>{const h=HOTELS[k];return `<article class="card hotel">
+ ["wgp","crown","sunshine","hj"].map(k=>{const h=HOTELS[k];return `<article class="card hotel">
    <h2>🏨 ${esc(h.name)}<br>${zh(h.name)}</h2>
    <div class="nights">${esc(h.nights)} · ${esc(h.city)}${h.room?" · "+h.room:""}</div>
    <p style="margin:6px 0 0">${esc(h.addr)}</p>
