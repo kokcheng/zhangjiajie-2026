@@ -85,12 +85,14 @@ const COLORS=["#0f766e","#c2410c","#7c3aed","#2563eb","#be123c","#4d7c0f","#b453
 const HOTELS={
   wgp:{name:"Wyndham Grand Plaza Royale Furongguo",city:"Changsha",addr:"106 Furong Middle Rd, Changsha, Hunan, China",tel:"+86-731-88688888",room:"1 TWN",ll:[28.1950,112.9990]},
   crown:{name:"Crown International Hotel",city:"Xiangxi / Fenghuang",addr:"Fenghuang, Xiangxi, Hunan (address not on voucher)",tel:"+86-743-8529999",ll:[27.9440,109.6050]},
+  sunshine:{name:"Sunshine Hotel & Resort Zhangjiajie",city:"Zhangjiajie",addr:"Address not on voucher",tel:"+86-744-8558888",ll:[29.1170,110.4780]},
   hj:{name:"Howard Johnson Neodalle Resort",city:"Zhangjiajie (Wulingyuan)",addr:"No. 168 Gaoyun Road, Wulingyuan District, Zhangjiajie, Hunan 427000, China",tel:"+86-744-5999999",ll:[29.3380,110.5440]},
   wc:{name:"Wyndham Changsha",city:"Changsha",addr:"No.48 Xiangfu Middle Road, Yuhua District, Changsha, Hunan",tel:"+86-731-85855888",ll:[28.1530,113.0050]}
 };
 HOTELS.wgp.nights="3 Nov – 4 Nov (1 night)";
 HOTELS.crown.nights="4 Nov – 5 Nov (1 night)";
-HOTELS.hj.nights="5 Nov – 9 Nov (4 nights)";
+HOTELS.sunshine.nights="5 Nov – 7 Nov (2 nights)";
+HOTELS.hj.nights="7 Nov – 9 Nov (2 nights)";
 HOTELS.wc.nights="9 Nov – 10 Nov (1 night)";
 
 const DAYS=[
@@ -101,18 +103,17 @@ const DAYS=[
  {d:"Wed 4 Nov",t:"Changsha → Fenghuang",meals:"Breakfast · Lunch · Dinner (Miao flavour)",stay:"crown",
   desc:"Ride the Fenghuang Maglev Sightseeing Express (4 stations, ~25 min, no assigned seats). Visit the Fenghuang Eye observation deck, East Gate City Tower, Rainbow Bridge & Fengyu Tower; eco-car tour of the old town. Evening: Xiangjian Tuojiang River Art Night Cruise (Cui Cui show, 3D light show, stilted houses).",
   stops:[["hotel:wgp"],["Fenghuang Maglev & Eye Observation Deck",[27.9540,109.5930],"Maglev + overlook"],["Fenghuang Ancient City",[27.9500,109.5980],"East Gate Tower, Rainbow Bridge, eco-car"],["Tuojiang River Night Cruise",[27.9490,109.5995],"Evening art cruise"],["hotel:crown"]],tt:["","~5–5.5 h by coach (~400 km)","~15 min (maglev ride ~25 min)","~5 min","~15 min"]},
- {d:"Thu 5 Nov",t:"Fenghuang → Zhangjiajie",meals:"Breakfast · Lunch (Tujia flavour at Miao village) · Dinner",stay:"hj",
+ {d:"Thu 5 Nov",t:"Fenghuang → Zhangjiajie",meals:"Breakfast · Lunch (Tujia flavour at Miao village) · Dinner",stay:"sunshine",
   desc:"Visit Morong Miao Village, then Furong Town (Wang Village) – the “thousand-year town hanging on a waterfall”. Coach on to Zhangjiajie and check in.",
-  note:"Itinerary PDF lists Sunshine Hotel for this night; the hotel list confirms Howard Johnson Neodalle Resort (shown here).",
-  stops:[["hotel:crown"],["Morong Miao Village",[28.3000,109.5200],"Miao culture"],["Furong Town (Wang Village)",[28.9285,109.9058],"Waterfall town"],["hotel:hj"]],tt:["","~1.5 h by coach","~1.5 h by coach","~2.5 h by coach"]},
- {d:"Fri 6 Nov",t:"Tianmen Mountain",meals:"Breakfast · Lunch (wild mushroom soup) · Dinner (Korean BBQ**)",stay:"hj",
+  stops:[["hotel:crown"],["Morong Miao Village",[28.3000,109.5200],"Miao culture"],["Furong Town (Wang Village)",[28.9285,109.9058],"Waterfall town"],["hotel:sunshine"]],tt:["","~1.5 h by coach","~1.5 h by coach","~2.5 h by coach"]},
+ {d:"Fri 6 Nov",t:"Tianmen Mountain",meals:"Breakfast · Lunch (wild mushroom soup) · Dinner (Korean BBQ**)",stay:"sunshine",
   desc:"One-way cable car up Tianmen Mountain National Forest Park, escalators and express cable car between spots, Tianmen Cave (highest natural arch), and the 109.9 m Seventy-Two Scenic Towers.",
   note:"Winter visiting methods and attractions may change with scenic-area notices.",
-  stops:[["hotel:hj"],["Tianmen Mountain",[29.0540,110.4830],"Cable car, escalators"],["Tianmen Cave",[29.0510,110.4780],"Highest natural arch"],["Seventy-Two Scenic Towers",[29.0560,110.4850],"109.9 m"],["hotel:hj"]],tt:["","~40 min by coach (+ cable car ~30 min)","~15 min on mountain","~15 min on mountain","~45 min by coach"]},
+  stops:[["hotel:sunshine"],["Tianmen Mountain",[29.0540,110.4830],"Cable car, escalators"],["Tianmen Cave",[29.0510,110.4780],"Highest natural arch"],["Seventy-Two Scenic Towers",[29.0560,110.4850],"109.9 m"],["hotel:sunshine"]],tt:["","~40 min by coach (+ cable car ~30 min)","~15 min on mountain","~15 min on mountain","~45 min by coach"]},
  {d:"Sat 7 Nov",t:"Forest Park · Yuanjiajie · Tianzi Mountain",meals:"Breakfast · Lunch · Dinner (Suoxi Shanzhai)",stay:"hj",
   desc:"Zhangjiajie Forest Park with the Bailong Elevator (VIP + Express Entry). Yuanjiajie: First Bridge Under Heaven, Back Garden. Tianzi Mountain, West Sea and Helong Park, then Tianzi cable car down and the VIP bus to the cableway car park.",
   note:"Eco-vehicles may be suspended on icy roads in winter; some sights may be skipped.",
-  stops:[["hotel:hj"],["Bailong Elevator",[29.3430,110.4380],"VIP + Express Entry"],["Yuanjiajie (First Bridge)",[29.3300,110.4350],"Back Garden"],["Tianzi Mountain",[29.3800,110.4770],"King of peaks"],["Helong Park",[29.3880,110.4390],"Tianzi cable car down"],["hotel:hj"]],tt:["","~20 min by coach","~15 min (elevator + shuttle)","~25 min by shuttle bus","~20 min (cable car + VIP bus)","~35 min by coach"]},
+  stops:[["hotel:sunshine"],["Bailong Elevator",[29.3430,110.4380],"VIP + Express Entry"],["Yuanjiajie (First Bridge)",[29.3300,110.4350],"Back Garden"],["Tianzi Mountain",[29.3800,110.4770],"King of peaks"],["Helong Park",[29.3880,110.4390],"Tianzi cable car down"],["hotel:hj"]],tt:["","~45 min by coach","~15 min (elevator + shuttle)","~25 min by shuttle bus","~20 min (cable car + VIP bus)","~35 min by coach"]},
  {d:"Sun 8 Nov",t:"Golden Whip Stream · Grand Canyon",meals:"Breakfast · Lunch (wood-fire Sanxia wok) · Dinner",stay:"hj",
   desc:"Walk the Golden Whip Stream, ride the Ten-Mile Gallery mini train (return included), then the Grand Canyon scenic area and the Yuntiandu Glass Bridge.",
   note:"If the Grand Canyon is closed it is replaced by Huangshizhai (cable car up & down).",
@@ -135,6 +136,7 @@ const ZH={
  "Golden Whip Stream":"金鞭溪","Ten-Mile Gallery":"十里画廊","Zhangjiajie Grand Canyon":"张家界大峡谷・云天渡玻璃桥",
  "Hunan Provincial Museum":"湖南省博物院","Du Fu Pavilion":"杜甫江阁","Huangxing Road Pedestrian Street":"黄兴路步行街",
  "Wyndham Grand Plaza Royale Furongguo":"长沙温德姆至尊豪廷酒店(芙蓉国)","Crown International Hotel":"湘西皇冠国际酒店",
+ "Sunshine Hotel & Resort Zhangjiajie":"张家界阳光酒店",
  "Howard Johnson Neodalle Resort":"张家界纳百利豪生度假酒店","Wyndham Changsha":"长沙温德姆酒店"
 };
 const TZH=["新加坡 → 长沙","长沙 → 凤凰","凤凰 → 张家界","张家界 天门山","张家界森林公园・袁家界・天子山","金鞭溪・十里画廊・大峡谷","张家界 → 长沙","长沙 → 新加坡"];
@@ -274,4 +276,3 @@ window.addEventListener("resize",()=>map.invalidateSize());
 </script>
 </body>
 </html>
-
