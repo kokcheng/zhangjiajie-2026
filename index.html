@@ -112,17 +112,18 @@ const DAYS=[
   desc:"Walk the Golden Whip Stream, then the Grand Canyon scenic area and the Yuntiandu Glass Bridge. Afternoon: Baofeng Lake with cruise and eco-car tour.",
   note:"If the Grand Canyon is closed it is replaced by Huangshizhai (cable car up & down).",
   stops:[["hotel:hj"],["Golden Whip Stream",[29.3290,110.4370],"Stream walk"],["Zhangjiajie Grand Canyon",[29.2450,110.4800],"Glass bridge"],["Baofeng Lake",[29.3200,110.5000],"Cruise + eco-car (afternoon)"],["hotel:hj"]],tt:["","~15 min by coach","~25 min (stream walk)","~1 h by coach","~1 h by coach"]},
- {d:"Sun 8 Nov",t:"Ten-Mile Gallery · Forest Park · Yuanjiajie · Tianzi Mountain · Museums",meals:"Breakfast · Lunch · Dinner (Suoxi Shanzhai)",stay:"hj",
-  desc:"Morning: ride the Ten-Mile Gallery mini train (return included). Then Zhangjiajie Forest Park with the Bailong Elevator (VIP + Express Entry). Yuanjiajie: First Bridge Under Heaven, Back Garden. Tianzi Mountain, West Sea and Helong Park, then Tianzi cable car down and the VIP bus to the cableway car park. Evening: Hunan Provincial Museum and Du Fu Pavilion with views of Orange Isle.",
+ {d:"Sun 8 Nov",t:"Ten-Mile Gallery · Forest Park · Yuanjiajie · Tianzi Mountain",meals:"Breakfast · Lunch · Dinner (Suoxi Shanzhai)",stay:"hj",
+  desc:"Morning: ride the Ten-Mile Gallery mini train (return included). Then Zhangjiajie Forest Park with the Bailong Elevator (VIP + Express Entry). Yuanjiajie: First Bridge Under Heaven, Back Garden. Tianzi Mountain, West Sea and Helong Park, then Tianzi cable car down and the VIP bus to the cableway car park.",
   note:"Eco-vehicles may be suspended on icy roads in winter; some sights may be skipped.",
-  stops:[["hotel:hj"],["Ten-Mile Gallery",[29.3540,110.4510],"Mini train (morning)"],["Bailong Elevator",[29.3430,110.4380],"VIP + Express Entry"],["Yuanjiajie (First Bridge)",[29.3300,110.4350],"Back Garden"],["Tianzi Mountain",[29.3800,110.4770],"King of peaks"],["Helong Park",[29.3880,110.4390],"Tianzi cable car down"],["Hunan Provincial Museum",[28.2137,112.9885],"Evening (or Jiankudumu Museum)"],["Du Fu Pavilion",[28.1880,112.9720],"Orange Isle view"],["hotel:hj"]],tt:["","~25 min (mini train)","~15 min by coach","~15 min (elevator + shuttle)","~25 min by shuttle bus","~20 min (cable car + VIP bus)","~30 min coach + museums","~10 min","~20 min by coach"]},
+  stops:[["hotel:hj"],["Ten-Mile Gallery",[29.3540,110.4510],"Mini train (morning)"],["Bailong Elevator",[29.3430,110.4380],"VIP + Express Entry"],["Yuanjiajie (First Bridge)",[29.3300,110.4350],"Back Garden"],["Tianzi Mountain",[29.3800,110.4770],"King of peaks"],["Helong Park",[29.3880,110.4390],"Tianzi cable car down"],["hotel:hj"]],tt:["","~25 min (mini train)","~15 min by coach","~15 min (elevator + shuttle)","~25 min by shuttle bus","~20 min (cable car + VIP bus)","~35 min by coach"]},
  {d:"Mon 9 Nov",t:"Zhangjiajie → Changsha",meals:"Breakfast · Lunch · Dinner (hotel seafood buffet)",stay:"wgp",
-  desc:"Travel from Zhangjiajie to Changsha by coach. Free time at Huangxing Road Pedestrian Street. Dinner: seafood buffet at Wyndham Grand Plaza Royale Furongguo.",
+  desc:"Travel from Zhangjiajie to Changsha by coach (~4.5–5 hours). Free time at Huangxing Road Pedestrian Street. Dinner: seafood buffet at Wyndham Grand Plaza Royale Furongguo.",
   note:"Travel time is approximately 4.5–5 hours by coach.",
   stops:[["hotel:hj"],["Huangxing Road Pedestrian Street",[28.1960,112.9770],"Free time"],["hotel:wgp","Seafood buffet dinner"],["hotel:wgp"]],tt:["","~4.5–5 h by coach (~330 km)","~10 min","~25 min"]},
- {d:"Tue 10 Nov",t:"Changsha → Singapore",meals:"Breakfast",stay:null,
-  desc:"Free time at leisure after breakfast, then to the airport. Fly TR125 on 11 Nov 00:05 → 04:40 (Singapore).",
-  stops:[["hotel:wgp"],["Changsha Huanghua Airport (CSX)",[28.1892,113.2196],"TR125 dep 00:05 (11 Nov)"],["Changi Airport (SIN)",[1.3644,103.9915],"Arrive 04:40"]],tt:["","~40 min by coach","✈ ~4h 35m flight"]}
+ {d:"Tue 10 Nov",t:"Hunan Provincial Museum · Du Fu Pavilion · Changsha → Singapore",meals:"Breakfast · Lunch · Dinner",stay:null,
+  desc:"Morning: Hunan Provincial Museum (or Jiankudumu Museum if closed) and Du Fu Pavilion with views of Orange Isle. Then to the airport. Fly TR125 on 11 Nov 00:05 → 04:40 (Singapore).",
+  note:"Museum hours and availability depend on opening times.",
+  stops:[["hotel:wgp"],["Hunan Provincial Museum",[28.2137,112.9885],"Museum (or Jiankudumu)"],["Du Fu Pavilion",[28.1880,112.9720],"Orange Isle view"],["Changsha Huanghua Airport (CSX)",[28.1892,113.2196],"TR125 dep 00:05 (11 Nov)"],["Changi Airport (SIN)",[1.3644,103.9915],"Arrive 04:40"]],tt:["","~20 min","~10 min","~15 min by coach","✈ ~4h 35m flight"]}
 ];
 
 const ZH={
@@ -137,7 +138,7 @@ const ZH={
  "Sunshine Hotel & Resort Zhangjiajie":"张家界阳光酒店",
  "Howard Johnson Neodalle Resort":"张家界纳百利豪生度假酒店"
 };
-const TZH=["新加坡 → 长沙","长沙 → 凤凰","凤凰 → 张家界","张家界 天门山","金鞭溪・大峡谷・宝峰湖","十里画廊・森林公园・袁家界・天子山・博物馆","张家界 → 长沙","长沙 → 新加坡"];
+const TZH=["新加坡 → 长沙","长沙 → 凤凰","凤凰 → 张家界","张家界 天门山","金鞭溪・大峡谷・宝峰湖","十里画廊・森林公园・袁家界・天子山","张家界 → 长沙","博物馆 → 新加坡"];
 const MZH=["","早/午/晚餐：苗家风味","早餐／午餐：苗寨土家风味／晚餐","早餐／午餐：野生菌汤锅／晚餐：韩式烤肉**","早/午/晚餐：索溪山寨","早餐／午餐：柴火老灶台三下锅／晚餐","早/午/晚餐：酒店自助餐（温德姆海鲜自助晚餐）","早餐"];
 const zh=n=>ZH[n]?`<span class="zh">${ZH[n]}</span>`:"";
 const EXTRA={
