@@ -105,9 +105,9 @@ const DAYS=[
   desc:"Visit Morong Miao Village, then Furong Town (Wang Village) – the \"thousand-year town hanging on a waterfall\". Coach on to Zhangjiajie and check in. Evening: visit the 109.9 m Seventy-Two Scenic Towers.",
   stops:[["hotel:crown"],["Morong Miao Village",[28.3000,109.5200],"Miao culture"],["Furong Town (Wang Village)",[28.9285,109.9058],"Waterfall town"],["hotel:sunshine"],["Seventy-Two Scenic Towers",[29.0560,110.4850],"109.9 m (evening)"],["hotel:sunshine"]],tt:["","~1.5 h by coach","~1.5 h by coach","~2.5 h by coach","~15 min on foot / short drive","~15 min by coach"]},
  {d:"Fri 6 Nov",t:"Tianmen Mountain",meals:"Breakfast · Lunch (wild mushroom soup) · Dinner (Korean BBQ**)",stay:"sunshine",
-  desc:"One-way cable car up Tianmen Mountain National Forest Park, escalators and express cable car between spots, and Tianmen Cave (highest natural arch).",
+  desc:"One-way cable car up Tianmen Mountain National Forest Park, escalators and express cable car between spots, and Tianmen Cave (highest natural arch). Evening: Tianmen Fox Show (or Charming Xiangxi Show) followed by 1-hour massage.",
   note:"Winter visiting methods and attractions may change with scenic-area notices.",
-  stops:[["hotel:sunshine"],["Tianmen Mountain",[29.0540,110.4830],"Cable car, escalators"],["Tianmen Cave",[29.0510,110.4780],"Highest natural arch"],["hotel:sunshine"]],tt:["","~40 min by coach (+ cable car ~30 min)","~15 min on mountain","~45 min by coach"]},
+  stops:[["hotel:sunshine"],["Tianmen Mountain",[29.0540,110.4830],"Cable car, escalators"],["Tianmen Cave",[29.0510,110.4780],"Highest natural arch"],["Tianmen Fox Show",[29.0540,110.4830],"Evening show + massage"],["hotel:sunshine"]],tt:["","~40 min by coach (+ cable car ~30 min)","~15 min on mountain","~1.5 hours","~30 min by coach"]},
  {d:"Sat 7 Nov",t:"Golden Whip Stream · Grand Canyon",meals:"Breakfast · Lunch (wood-fire Sanxia wok) · Dinner",stay:"hj",
   desc:"Walk the Golden Whip Stream, ride the Ten-Mile Gallery mini train (return included), then the Grand Canyon scenic area and the Yuntiandu Glass Bridge.",
   note:"If the Grand Canyon is closed it is replaced by Huangshizhai (cable car up & down).",
@@ -129,7 +129,7 @@ const ZH={
  "Changi Airport T1 (SIN)":"新加坡樟宜机场 T1","Changi Airport (SIN)":"新加坡樟宜机场","Changsha Huanghua Airport (CSX)":"长沙黄花国际机场",
  "Fenghuang Maglev & Eye Observation Deck":"凤凰磁浮观光快线・凤凰之眼观景台","Fenghuang Ancient City":"凤凰古城",
  "Tuojiang River Night Cruise":"湘见・沱江艺术夜游船","Morong Miao Village":"墨戎苗寨","Furong Town (Wang Village)":"芙蓉镇(王村)",
- "Tianmen Mountain":"天门山国家森林公园","Tianmen Cave":"天门洞","Seventy-Two Scenic Towers":"七十二奇楼",
+ "Tianmen Mountain":"天门山国家森林公园","Tianmen Cave":"天门洞","Tianmen Fox Show":"天门狐仙秀","Seventy-Two Scenic Towers":"七十二奇楼",
  "Bailong Elevator":"百龙天梯","Yuanjiajie (First Bridge)":"袁家界・天下第一桥","Tianzi Mountain":"天子山","Helong Park":"贺龙公园",
  "Golden Whip Stream":"金鞭溪","Ten-Mile Gallery":"十里画廊","Zhangjiajie Grand Canyon":"张家界大峡谷・云天渡玻璃桥",
  "Hunan Provincial Museum":"湖南省博物院","Du Fu Pavilion":"杜甫江阁","Huangxing Road Pedestrian Street":"黄兴路步行街",
@@ -142,7 +142,7 @@ const MZH=["","早/午/晚餐：苗家风味","早餐／午餐：苗寨土家风
 const zh=n=>ZH[n]?`<span class="zh">${ZH[n]}</span>`:"";
 const EXTRA={
  add:["Furong Town 芙蓉镇 (cruise + eco-car 游船+环保车)","Phoenix Ancient City eco-car 凤凰古城环保车","Korean BBQ 韩式烤肉特色餐"],
- opt:["Tianmen Fox Show 天门狐仙秀 (or Charming Xiangxi Show 魅力湘西歌舞秀) + 1 hr massage 按摩 – RMB500 adult / RMB250 child","Baofeng Lake 宝峰湖 (cruise + eco-car) + Orange Isle 橘子洲头 (battery car) – RMB450 adult / RMB225 child"]
+ opt:["Baofeng Lake 宝峰湖 (cruise + eco-car) + Orange Isle 橘子洲头 (battery car) – RMB450 adult / RMB225 child"]
 };
 
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
